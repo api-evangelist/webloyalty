@@ -1,7 +1,29 @@
 aid: webloyalty
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/webloyalty.png
 name: Webloyalty
-description: Webloyalty is a company surfaced as a portfolio company of canaan-partners and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Webloyalty is a customer-engagement and loyalty-marketing company that helps
+  ecommerce and retail businesses build stronger, more profitable customer
+  relationships. Its market-leading rewards platform delivers savings, cashback,
+  and shopping benefits to consumers, typically presented after an online
+  transaction, while generating incremental secondary revenue for the retail
+  partner. Founded in 1999 and historically part of the Affinion Group, the
+  company operates localized programs across the United States, United Kingdom,
+  France, Ireland, Spain, the Netherlands, Switzerland, Turkey, and Mexico. This
+  API Evangelist profile was surfaced as a portfolio company of Canaan Partners.
+  Webloyalty markets a consumer rewards/membership product and a partner
+  engagement platform, but publishes no public developer program or API.
 url: https://raw.githubusercontent.com/api-evangelist/webloyalty/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +33,35 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
+- Loyalty
+- Rewards
+- Ecommerce
+- Customer Engagement
+- Marketing
+- Retail
+- Cashback
 apis: []
+common:
+- type: DomainSecurity
+  url: security/webloyalty-domain-security.yml
+- type: Website
+  url: http://webloyalty.com/
+- type: TermsOfService
+  url: https://webloyalty.co.uk/terms-conditions/
+- type: PrivacyPolicy
+  url: https://webloyalty.co.uk/privacy-cookies-policy/
+- type: Support
+  url: https://webloyalty.co.uk/contact-us/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
