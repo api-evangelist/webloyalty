@@ -23,7 +23,12 @@ description: >-
   France, Ireland, Spain, the Netherlands, Switzerland, Turkey, and Mexico. This
   API Evangelist profile was surfaced as a portfolio company of Canaan Partners.
   Webloyalty markets a consumer rewards/membership product and a partner
-  engagement platform, but publishes no public developer program or API.
+  engagement platform, and is a brand of Tenerity (formerly Affinion Group). It
+  publishes no developer portal, API reference or OpenAPI — its commercial
+  integration is sold as "bespoke API solutions" through sales. Its only public
+  programmable surfaces are an OAuth-protected Model Context Protocol endpoint
+  served from the UK site's WordPress REST API, and a first-party React Native
+  SDK for embedding Webloyalty campaign banners in partner apps.
 url: https://raw.githubusercontent.com/api-evangelist/webloyalty/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -33,7 +38,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-08-13'
 tags:
 - Company
 - Loyalty
@@ -55,13 +60,41 @@ common:
   url: https://webloyalty.co.uk/privacy-cookies-policy/
 - type: Support
   url: https://webloyalty.co.uk/contact-us/
+- type: Blog
+  url: https://webloyalty.co.uk/news-views/
+- type: BlogRSS
+  url: https://webloyalty.co.uk/feed/
+- type: MCPServer
+  url: mcp/webloyalty-mcp.yml
+- type: WellKnown
+  url: well-known/webloyalty-well-known.yml
+- type: Authentication
+  url: authentication/webloyalty-authentication.yml
+- type: OAuthScopes
+  url: scopes/webloyalty-scopes.yml
+- type: Conformance
+  url: conformance/webloyalty-conformance.yml
+- type: Packages
+  url: packages/webloyalty-packages.yml
+- type: SDKs
+  url: packages/webloyalty-packages.yml
+- type: Components
+  url: components/webloyalty-components.yml
+- type: ChangeLog
+  url: changelog/webloyalty-changelog.yml
+- type: Plans
+  url: plans/webloyalty-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/webloyalty-rate-limits.yml
+- type: LLMsTxt
+  url: llms/webloyalty-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 x-enrichment:
-  date: '2026-07-21'
-  status: minimal
-  artifacts_added: 1
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 11
   pass: local-v1
