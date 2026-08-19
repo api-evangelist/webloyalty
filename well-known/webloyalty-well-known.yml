@@ -1,0 +1,130 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of webloyalty.com and webloyalty.co.uk
+note: >-
+  Webloyalty publishes no security.txt, api-catalog, ai-plugin or agent card. It
+  DOES serve two real OAuth 2.0 discovery documents on webloyalty.co.uk, both
+  scoped to a single "mcp" scope: RFC 8414 authorization-server metadata and RFC
+  9728 protected-resource metadata pointing at an MCP endpoint hosted inside the
+  site's WordPress REST API. The webloyalty.com host is a static locale splash
+  page and 404s every well-known path with an Apache default error body. The
+  webloyalty.co.uk 404s are WordPress soft-404s (HTTP 404 with the full themed
+  HTML page) — recorded as misses, not as documents.
+hosts:
+- host: webloyalty.co.uk
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: webloyalty-oauth-authorization-server.json
+    document: true
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    file: webloyalty-oauth-protected-resource.json
+    document: true
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 404
+    document: false
+  - path: /robots.txt
+    status: 200
+    content_type: text/plain
+    document: true
+    note: Yoast-generated, allows all agents, points at sitemap_index.xml
+- host: webloyalty.com
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    document: false
+  - path: /.well-known/openid-configuration
+    status: 404
+    document: false
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+  - path: /.well-known/api-catalog
+    status: 404
+    document: false
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    document: false
+  - path: /.well-known/agent-card.json
+    status: 404
+    document: false
+  - path: /.well-known/agent.json
+    status: 404
+    document: false
+  - path: /llms.txt
+    status: 404
+    document: false
+  - path: /robots.txt
+    status: 404
+    document: false
+- host: webloyalty.ie
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    document: true
+    note: byte-identical to the webloyalty.co.uk document; issuer is webloyalty.co.uk
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    document: true
+    note: resource points back at https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server
+- host: webloyalty.nl
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    document: true
+    note: byte-identical to the webloyalty.co.uk document; issuer is webloyalty.co.uk
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    content_type: application/json
+    document: true
+- host: webloyalty.fr
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+- host: webloyalty.es
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+- host: webloyalty.ch
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+- host: webloyalty.mx
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    document: false
+security_txt: false
+api_catalog: false
+agent_card: false
+checked: '2026-08-13'

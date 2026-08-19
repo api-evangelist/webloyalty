@@ -1,0 +1,24 @@
+generated: '2026-08-13'
+method: searched
+source: https://webloyalty.co.uk/what-we-offer/
+plan_count: 0
+note: >-
+  Webloyalty publishes no plans, tiers or prices. /pricing and /plans return HTTP
+  404 on webloyalty.co.uk, and the what-we-offer page describes a commercial
+  partnership rather than a priced product: the retailer pays nothing and instead
+  earns a share of secondary revenue generated from its confirmation page
+  ("ready-to-go rewards platform that drives secondary revenue"), with a bespoke
+  API option available on request. Engagement is via a contact/callback form.
+  There is no self-serve signup and no metered API pricing to record.
+billing_model: revenue-share / negotiated partnership
+self_serve: false
+public_pricing: false
+contact_url: https://webloyalty.co.uk/contact-us/
+evidence:
+- url: https://webloyalty.co.uk/what-we-offer/
+  status: 200
+- url: https://webloyalty.co.uk/pricing
+  status: 404
+- url: https://webloyalty.co.uk/plans
+  status: 404
+plans: []

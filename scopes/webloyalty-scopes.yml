@@ -1,0 +1,22 @@
+generated: '2026-08-13'
+method: probed
+source: https://webloyalty.co.uk/.well-known/oauth-authorization-server
+note: >-
+  The authorization server advertises exactly one scope. There is no published
+  scope reference page — Webloyalty has no developer documentation of any kind —
+  so this is the complete, machine-advertised scope surface and nothing more is
+  inferred.
+issuer: https://webloyalty.co.uk
+authorization_url: https://webloyalty.co.uk/oauth/authorize
+token_url: https://webloyalty.co.uk/oauth/token
+scope_count: 1
+scopes:
+- name: mcp
+  description: >-
+    Access the MCP resource at
+    https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server. Coarse-grained: the
+    server publishes no read/write split and no per-tool scopes.
+  resource: https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server
+  source: scopes_supported in the RFC 8414 metadata (and repeated in the RFC 9728
+    protected-resource metadata)
+docs: null

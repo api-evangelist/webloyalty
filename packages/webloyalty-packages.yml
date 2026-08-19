@@ -1,0 +1,75 @@
+generated: '2026-08-13'
+method: searched
+source: https://registry.npmjs.org/tenerity-blender-rn-sdk
+note: >-
+  Searched npm, PyPI, RubyGems, Packagist and Maven/NuGet/crates/pkg.go.dev for
+  Webloyalty client libraries. One first-party package exists, published under
+  the parent brand: Webloyalty is a Tenerity (formerly Affinion Group) company,
+  and the package README states plainly "This is a `Mobile Ad Library - Blender`
+  package provided by Webloyalty for implementation in `react-native`
+  applications of our partners". Maintainer is tenerity-mobile-team
+  (mrmui@tenerity.com). That statement is the ownership justification for the
+  different-brand package name. No package exists under a "webloyalty" name on
+  any registry.
+package_count: 1
+packages:
+- language: javascript
+  ecosystem: react-native
+  registry: npm
+  name: tenerity-blender-rn-sdk
+  url: https://www.npmjs.com/package/tenerity-blender-rn-sdk
+  official: true
+  version: 3.0.4
+  published: '2025-10-30'
+  first_published: '2021-07-28'
+  release_count: 20
+  license: null
+  repository: null
+  repository_note: >-
+    The repository field points at the npm page itself, not a source host. There
+    is no public source repository for this SDK.
+  description: >-
+    Blender SDK for React Native — embeds Webloyalty "WLS" campaign banners
+    (inline and full-screen overlay) into a partner's mobile app. Takes a
+    campaignId issued by Webloyalty and fetches banner objects from Webloyalty's
+    (undocumented, partner-only) banner API.
+  install: yarn add tenerity-blender-rn-sdk
+  peer_requirements:
+  - react-native-device-info
+  - react-native-webview
+related_not_attributed:
+- registry: npm
+  name: tenerity-ui-toolkit
+  version: 0.1.13
+  published: '2023-08-23'
+  official: false
+  reason: >-
+    Published by the same parent (Tenerity) but describes itself only as
+    "Tenerity UI Toolkit for all UI Apps" — nothing ties it to the Webloyalty
+    brand, so it is recorded but NOT counted as a Webloyalty SDK.
+- registry: npm
+  name: tenerity-cookie-popup-mobile-sdk
+  version: 1.5.0
+  published: '2023-01-09'
+  official: false
+  reason: >-
+    Same parent, but it is a OneTrust cookie-consent wrapper
+    ("gce-mobile-app-cookie-popup-react-native"), not a Webloyalty product
+    surface.
+registries_checked:
+- registry: npm
+  result: 1 first-party package
+- registry: pypi
+  result: 404 for webloyalty; no first-party package
+- registry: rubygems
+  result: 404 for webloyalty; no first-party package
+- registry: packagist
+  result: no Webloyalty/Tenerity package (matches are unrelated "heyloyalty" vendors)
+- registry: maven-central
+  result: none
+- registry: nuget
+  result: none
+- registry: crates.io
+  result: none
+- registry: pkg.go.dev
+  result: none

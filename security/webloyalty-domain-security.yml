@@ -1,12 +1,25 @@
-generated: '2026-07-21'
+generated: '2026-08-13'
 method: probed
 source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+note: >-
+  webloyalty.co.uk was probed by hand on 2026-08-13 because it is the host that
+  actually serves Webloyalty's programmable surface (the OAuth authorization
+  server and the MCP endpoint), and it is not reachable from an apis[] entry —
+  the profile has none. A later automated run of probe-domain-security.py will
+  regenerate this file from apis.yml hosts only and may drop that row.
 hosts:
 - host: webloyalty.com
   https: true
   tls_version: TLSv1.2
   cert_expires: Sep 13 23:59:59 2026 GMT
   hsts: false
+- host: webloyalty.co.uk
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Feb  5 23:59:59 2027 GMT
+  cert_issuer: Amazon RSA 2048 M01
+  hsts: false
+  method: probed-by-hand
 domains:
 - domain: webloyalty.com
   dnssec: false
@@ -14,3 +27,10 @@ domains:
   spf: true
   dmarc: true
   dmarc_policy: reject
+- domain: webloyalty.co.uk
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+  method: probed-by-hand

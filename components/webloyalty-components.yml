@@ -1,0 +1,67 @@
+generated: '2026-08-13'
+method: searched
+source: https://registry.npmjs.org/tenerity-blender-rn-sdk
+note: >-
+  Webloyalty's only public client-side surface is an embeddable banner component
+  shipped as a React Native SDK. It is distributed on npm rather than documented
+  on a developer site; the README (quoted below in props) is the entire published
+  reference. The web/desktop equivalent — the confirmation-page placement the
+  marketing site describes — is delivered as a partner-side tag/placement and is
+  not publicly documented.
+component_count: 1
+families:
+- family: Blender (Mobile Ad Library)
+  platform: react-native
+  loader: tenerity-blender-rn-sdk (npm, see packages/webloyalty-packages.yml)
+  components:
+  - name: Blender
+    import: "import { Blender } from 'tenerity-blender-rn-sdk'"
+    renders:
+    - inline banner (placed in the render hierarchy, sized via inlineBannerStyle)
+    - full-screen overlay banner (rendered above page content, position-independent)
+    props:
+    - name: campaignId
+      type: string
+      required: true
+      description: Campaign ID issued to the partner by Webloyalty; selects which
+        banner objects are fetched.
+    - name: isLoggingEnabled
+      type: boolean
+      required: false
+      default: false
+      description: Enables debug logs in both development AND production builds.
+    - name: inlineBannerStyle
+      type: StyleSheetProperties
+      required: false
+      default: '{}'
+      description: >-
+        Sizing/style for the inline banner. Documented hazard — must NOT be set
+        when the campaign carries only an overlay banner, or the component
+        flickers/jumps.
+    - name: keywords
+      type: string
+      required: false
+      default: null
+      description: Only to be used when the value has been communicated by
+        Webloyalty.
+    - name: onSuccess
+      type: function
+      required: false
+      description: Fired when banners are fetched and loaded.
+    - name: onFailure
+      type: function
+      required: false
+      description: Fired with an error message string when banner fetching fails.
+    breaking_changes:
+      version: 3.0.0
+      removed:
+      - BlenderContextProvider (component removed entirely)
+      - bannerType (prop)
+      - isBannerShown (prop)
+      - showLoadingIndicator (prop)
+      - webViewProps (prop)
+web_components: []
+web_components_note: >-
+  No web component, JS snippet, iframe embed or hosted element library is
+  published. The consumer-facing "Complete Savings" confirmation-page placement
+  is integrated through a commercial partner engagement, not a public embed.

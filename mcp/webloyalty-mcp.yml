@@ -1,0 +1,79 @@
+generated: '2026-08-13'
+method: probed
+source: https://webloyalty.co.uk/.well-known/oauth-protected-resource
+name: Webloyalty MCP Server
+status: live
+deployment:
+  mode: remote
+  endpoint: https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server
+  auth: oauth
+  verified: probed
+description: >-
+  Webloyalty's UK site (webloyalty.co.uk) serves a live, OAuth-protected Model
+  Context Protocol endpoint from inside its WordPress REST API. It is advertised
+  by two real discovery documents on the same host — RFC 9728
+  protected-resource metadata naming the resource, and RFC 8414
+  authorization-server metadata naming the authorize/token/revoke endpoints —
+  and the endpoint answers JSON-RPC over HTTP. This is an infrastructure surface
+  the company deployed (the WordPress MCP adapter plus an MCP OAuth server), NOT
+  a documented developer product: Webloyalty publishes no developer portal, no
+  API reference, and no mention of MCP anywhere on its marketing site.
+servers:
+- id: mcp-oauth-server
+  url: https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server
+  transport: streamable-http
+  methods:
+  - POST
+  - GET
+  - DELETE
+  auth: oauth2
+  probe:
+    method: tools/list
+    http_status: 401
+    body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+    fetched: '2026-08-13'
+- id: mcp-adapter-default-server
+  url: https://webloyalty.co.uk/wp-json/mcp/mcp-adapter-default-server
+  transport: streamable-http
+  methods:
+  - POST
+  - GET
+  - DELETE
+  auth: wordpress-application-password
+  probe:
+    method: tools/list
+    http_status: 401
+    body: '{"code":"rest_forbidden","message":"Sorry, you are not allowed to do that.","data":{"status":401}}'
+    fetched: '2026-08-13'
+discovery:
+- url: https://webloyalty.co.uk/.well-known/oauth-protected-resource
+  status: 200
+  file: well-known/webloyalty-oauth-protected-resource.json
+- url: https://webloyalty.co.uk/.well-known/oauth-authorization-server
+  status: 200
+  file: well-known/webloyalty-oauth-authorization-server.json
+- url: https://webloyalty.co.uk/wp-json/mcp
+  status: 200
+  note: WordPress REST route index for the `mcp` namespace; lists both servers
+tools: []
+tools_note: >-
+  NOT RECORDED — tools/list returns HTTP 401 on both servers. The live tool set
+  and its inputSchemas require an OAuth access token with the `mcp` scope, which
+  we do not hold. No tool list is published anywhere else (no llms.txt, no docs),
+  so nothing is derived here. An authenticated introspection would be needed to
+  enumerate them.
+related_surfaces:
+- surface: WordPress REST API
+  url: https://webloyalty.co.uk/wp-json/
+  status: 200
+  note: >-
+    Route index is anonymous and lists 317 routes across 16 namespaces, including
+    `mcp` and `wp-abilities/v1` (the WordPress Abilities API the MCP adapter
+    exposes as tools). Every data route we probed (wp/v2/posts,
+    wp-abilities/v1/abilities, wp-abilities/v1/categories) returns HTTP 401
+    `rest_forbidden` — the REST API itself is locked down.
+mirrors:
+- host: webloyalty.ie
+  note: serves the same discovery documents; both point back at webloyalty.co.uk
+- host: webloyalty.nl
+  note: serves the same discovery documents; both point back at webloyalty.co.uk

@@ -1,0 +1,22 @@
+generated: '2026-08-13'
+method: searched
+source: https://webloyalty.co.uk/
+limit_count: 0
+note: >-
+  No rate limits are published. Webloyalty has no developer portal or API
+  reference in which to document them — every page in the site's sitemap is
+  marketing, careers, legal or editorial. The only reachable programmable
+  surfaces (the MCP endpoint and the WordPress REST API on webloyalty.co.uk)
+  return HTTP 401 before any limit could be observed, so nothing was measured
+  either. An honest zero.
+headers_observed: []
+headers_note: >-
+  Unauthenticated responses from https://webloyalty.co.uk/wp-json/ and
+  https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server carried no
+  X-RateLimit-*, RateLimit-* or Retry-After headers.
+evidence:
+- url: https://webloyalty.co.uk/wp-json/
+  status: 200
+- url: https://webloyalty.co.uk/wp-json/mcp/mcp-oauth-server
+  status: 401
+limits: []

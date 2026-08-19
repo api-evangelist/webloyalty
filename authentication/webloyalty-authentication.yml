@@ -1,0 +1,59 @@
+generated: '2026-08-13'
+method: probed
+source: https://webloyalty.co.uk/.well-known/oauth-authorization-server
+note: >-
+  Derived from the RFC 8414 authorization-server metadata Webloyalty serves on
+  webloyalty.co.uk, not from an OpenAPI (none is published) and not from a docs
+  page (there is no developer portal). This authorization server exists to guard
+  one thing: the site's MCP endpoint. Webloyalty's commercial integration
+  ("bespoke API solutions" on the what-we-offer page) documents no auth model
+  publicly.
+schemes:
+- id: mcp-oauth
+  type: oauth2
+  in: header
+  bearer_methods:
+  - header
+  issuer: https://webloyalty.co.uk
+  flows:
+    authorization_code:
+      authorization_url: https://webloyalty.co.uk/oauth/authorize
+      token_url: https://webloyalty.co.uk/oauth/token
+      refresh_supported: true
+      pkce_required_methods:
+      - S256
+      scopes:
+        mcp: Access the Webloyalty MCP endpoint (only scope the server advertises)
+  revocation_url: https://webloyalty.co.uk/oauth/revoke
+  response_types_supported:
+  - code
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  token_endpoint_auth_methods_supported:
+  - none
+  client_id_metadata_document_supported: true
+  notes:
+  - >-
+    token_endpoint_auth_methods_supported is ["none"] — public clients only, no
+    client secret. PKCE S256 is the only code-challenge method advertised, which
+    is what MCP's authorization spec requires of public clients.
+  - >-
+    client_id_metadata_document_supported: true means clients identify themselves
+    by a URL to a client metadata document rather than pre-registering.
+  - >-
+    A bare GET of https://webloyalty.co.uk/oauth/authorize returns HTTP 400
+    (missing parameters), which confirms the endpoint is wired and not a stub.
+- id: wordpress-application-passwords
+  type: http
+  scheme: basic
+  note: >-
+    The WordPress REST API index advertises application passwords, authorized at
+    https://webloyalty.co.uk/wp-admin/authorize-application.php. This is the
+    CMS's own admin credential path, not a partner-facing API credential.
+  applies_to: https://webloyalty.co.uk/wp-json/
+docs: null
+docs_note: >-
+  No public authentication documentation exists. Searched webloyalty.com,
+  webloyalty.co.uk (all 13 sitemap pages) and the locale sites — no developer
+  portal, no API reference, no auth guide.
