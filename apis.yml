@@ -59,6 +59,7 @@ tags:
 - Marketing
 - Retail
 - Cashback
+- Loyalty & Incentives
 tags_raw:
 - Company
 - Loyalty
@@ -68,6 +69,7 @@ tags_raw:
 - Marketing
 - Retail
 - Cashback
+- Loyalty & Incentives
 apis: []
 common:
 - type: DomainSecurity
