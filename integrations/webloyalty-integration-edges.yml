@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/webloyalty/integrations
+- https://n8n.io/integrations/webloyalty/
+- https://composio.dev/toolkits/webloyalty
+- https://monid.ai/tools/webloyalty
+checked:
+- https://composio.dev/toolkits/webloyalty
+- https://monid.ai/tools/webloyalty
+- https://n8n.io/integrations/webloyalty/
+- https://zapier.com/apps/webloyalty/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
